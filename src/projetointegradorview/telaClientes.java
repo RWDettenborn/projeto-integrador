@@ -76,7 +76,7 @@ public class telaClientes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableClientes = new javax.swing.JTable();
         jLabelconsultanomecliente = new javax.swing.JLabel();
-        jTextFieldpesquisanomecliente = new javax.swing.JTextField();
+        jTextFieldpesquisa = new javax.swing.JTextField();
         buttonpesquisar = new java.awt.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -136,6 +136,12 @@ public class telaClientes extends javax.swing.JFrame {
 
         jLabelrua.setText("Rua:");
 
+        jTextFieldruacliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldruaclienteActionPerformed(evt);
+            }
+        });
+
         jLabel3.setText("Fone:");
 
         jLabelbairrocliente.setText("Bairro:");
@@ -158,7 +164,18 @@ public class telaClientes extends javax.swing.JFrame {
 
         jLabel5.setText("Comp.:");
 
+        jTextFieldcomplemento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldcomplementoActionPerformed(evt);
+            }
+        });
+
         jComboBoxEnderecoscadastrados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxEnderecoscadastrados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxEnderecoscadastradosActionPerformed(evt);
+            }
+        });
 
         jButtonsalvarSalvarEndereco.setText("SALVAR ENDEREÇO");
         jButtonsalvarSalvarEndereco.addActionListener(new java.awt.event.ActionListener() {
@@ -176,13 +193,29 @@ public class telaClientes extends javax.swing.JFrame {
 
         jLabel6.setText("Cidade:");
 
+        jTextFieldcidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldcidadeActionPerformed(evt);
+            }
+        });
+
         try {
             jFormattedTextFieldcepcliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####-###")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldcepcliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldcepclienteActionPerformed(evt);
+            }
+        });
 
         jFormattedTextFieldnumero.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        jFormattedTextFieldnumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldnumeroActionPerformed(evt);
+            }
+        });
 
         try {
             jFormattedTextFieldCPF.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
@@ -200,6 +233,11 @@ public class telaClientes extends javax.swing.JFrame {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        jFormattedTextFieldtelefonecliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextFieldtelefoneclienteActionPerformed(evt);
+            }
+        });
 
         jLabelNomeClienteIdentificador.setText("IDENTIFICADOR:");
 
@@ -396,9 +434,9 @@ public class telaClientes extends javax.swing.JFrame {
 
         jLabelconsultanomecliente.setText("Nome:");
 
-        jTextFieldpesquisanomecliente.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldpesquisa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldpesquisanomeclienteActionPerformed(evt);
+                jTextFieldpesquisaActionPerformed(evt);
             }
         });
 
@@ -420,7 +458,7 @@ public class telaClientes extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabelconsultanomecliente)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldpesquisanomecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldpesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addComponent(buttonpesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -435,7 +473,7 @@ public class telaClientes extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabelconsultanomecliente)
-                        .addComponent(jTextFieldpesquisanomecliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldpesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(buttonpesquisar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -482,26 +520,38 @@ public class telaClientes extends javax.swing.JFrame {
 
     private void buttonpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonpesquisarActionPerformed
         
-        if(jTextFieldpesquisanomecliente.getText().isBlank()){
+        if(jTextFieldpesquisa.getText().isBlank()){
            ClientesDAO dao = new ClientesDAO(); 
            List<Clientes> lista = dao.listarClientes();
-            DefaultTableModel tabela = (DefaultTableModel)jTableClientes.getModel();
+           DefaultTableModel tabela = (DefaultTableModel)jTableClientes.getModel();
+           tabela.setNumRows(0);
+           for(Clientes cliente: lista){ 
+               tabela.addRow(new Object[]{ 
+                   cliente.getId(),
+                   cliente.getNome(),
+                   cliente.getCpf(),
+                   cliente.getEmail(),
+                   cliente.getTelefone(),} );
+            }
+        } else {
+            ClientesDAO dao = new ClientesDAO();
+            List<Clientes> lista = dao.buscarClientes(jTextFieldpesquisa.getText());
+            DefaultTableModel tabela = (DefaultTableModel) jTableClientes.getModel();
             tabela.setNumRows(0);
-            for(Clientes cliente: lista){ 
-            tabela.addRow(new Object[]{ 
-            cliente.getId(),
-            cliente.getNome(),
-            cliente.getCpf(),
-            cliente.getEmail(),
-            cliente.getTelefone(),
-            } );
+            for (Clientes cliente : lista) {
+                tabela.addRow(new Object[]{
+                    cliente.getId(),
+                    cliente.getNome(),
+                    cliente.getCpf(),
+                    cliente.getEmail(),
+                    cliente.getTelefone(),});
             }
         }
     }//GEN-LAST:event_buttonpesquisarActionPerformed
 
-    private void jTextFieldpesquisanomeclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldpesquisanomeclienteActionPerformed
+    private void jTextFieldpesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldpesquisaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldpesquisanomeclienteActionPerformed
+    }//GEN-LAST:event_jTextFieldpesquisaActionPerformed
 
     private void jTextFieldbairroclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldbairroclienteActionPerformed
         // TODO add your handling code here:
@@ -612,7 +662,6 @@ public class telaClientes extends javax.swing.JFrame {
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         Clientes clientes = new Clientes();
         clientes.setId(Integer.parseInt(jTextFieldnomeclienteIdentificador.getText()));
-        
         ClientesDAO dao = new ClientesDAO();
         dao.deletarCliente(clientes);
     }//GEN-LAST:event_jButtonExcluirActionPerformed
@@ -620,6 +669,34 @@ public class telaClientes extends javax.swing.JFrame {
     private void jTableClientesAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jTableClientesAncestorAdded
         // TODO add your handling code here:
     }//GEN-LAST:event_jTableClientesAncestorAdded
+
+    private void jFormattedTextFieldtelefoneclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldtelefoneclienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldtelefoneclienteActionPerformed
+
+    private void jComboBoxEnderecoscadastradosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxEnderecoscadastradosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxEnderecoscadastradosActionPerformed
+
+    private void jFormattedTextFieldcepclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldcepclienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldcepclienteActionPerformed
+
+    private void jFormattedTextFieldnumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextFieldnumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextFieldnumeroActionPerformed
+
+    private void jTextFieldcomplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldcomplementoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldcomplementoActionPerformed
+
+    private void jTextFieldruaclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldruaclienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldruaclienteActionPerformed
+
+    private void jTextFieldcidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldcidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldcidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -697,7 +774,7 @@ public class telaClientes extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldcomplemento;
     private javax.swing.JTextField jTextFieldnomecliente;
     private javax.swing.JTextField jTextFieldnomeclienteIdentificador;
-    private javax.swing.JTextField jTextFieldpesquisanomecliente;
+    private javax.swing.JTextField jTextFieldpesquisa;
     private javax.swing.JTextField jTextFieldruacliente;
     // End of variables declaration//GEN-END:variables
 }

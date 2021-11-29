@@ -115,5 +115,32 @@ public ClientesDAO(){
         } catch (SQLException e) {
         }
     }
-    
+    public List<Clientes> buscarClientes(String valorDeBusca) {
+        try {
+            List<Clientes> lista = new ArrayList<>();
+            String sql = "select * from tb_clientes where concat_ws(id,nome,cpf,email,telefone) like ?";
+
+            PreparedStatement comando = conexao.prepareStatement(sql);
+            comando.setString(1, "%"+ valorDeBusca+ "%");
+
+            ResultSet rs = comando.executeQuery();
+
+            while (rs.next()) { 
+
+                Clientes obj = new Clientes();
+
+                obj.setId(rs.getInt("id"));
+                obj.setNome(rs.getString("nome"));
+                obj.setCpf(rs.getString("cpf"));
+                obj.setEmail(rs.getString("email"));
+                obj.setTelefone(rs.getString("telefone"));
+
+                lista.add(obj);
+            }
+            return lista;
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+            return null;
+        }
+    }
 }

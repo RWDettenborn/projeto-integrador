@@ -15,7 +15,7 @@ public class testaconecsao {
     public static void main(String[] args) {
         try {
             ConnectionFactory.getConnection();
-            JOptionPane.showMessageDialog(null, "conecsao bem sucedida");
+            JOptionPane.showMessageDialog(null, "conexão bem sucedida");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }

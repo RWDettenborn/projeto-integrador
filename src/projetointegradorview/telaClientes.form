@@ -358,6 +358,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldruacliente">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldruaclienteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel3">
                   <Properties>
@@ -395,6 +398,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldcomplemento">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldcomplementoActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="jComboBoxEnderecoscadastrados">
                   <Properties>
@@ -407,6 +413,9 @@
                       </StringArray>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxEnderecoscadastradosActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -433,6 +442,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextFieldcidade">
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldcidadeActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldcepcliente">
                   <Properties>
@@ -440,6 +452,9 @@
                       <Format format="#####-###" subtype="-1" type="5"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldcepclienteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldnumero">
                   <Properties>
@@ -447,6 +462,9 @@
                       <Format format="#0" subtype="-1" type="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldnumeroActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldCPF">
                   <Properties>
@@ -464,6 +482,9 @@
                       <Format format="(##)#####-####" subtype="-1" type="5"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextFieldtelefoneclienteActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabelNomeClienteIdentificador">
                   <Properties>
@@ -522,7 +543,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jLabelconsultanomecliente" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldpesquisanomecliente" min="-2" pref="252" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldpesquisa" min="-2" pref="252" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   <Component id="buttonpesquisar" min="-2" pref="76" max="-2" attributes="0"/>
                               </Group>
@@ -542,7 +563,7 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabelconsultanomecliente" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldpesquisanomecliente" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldpesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="buttonpesquisar" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -617,9 +638,9 @@
                     <Property name="text" type="java.lang.String" value="Nome:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldpesquisanomecliente">
+                <Component class="javax.swing.JTextField" name="jTextFieldpesquisa">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldpesquisanomeclienteActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldpesquisaActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="java.awt.Button" name="buttonpesquisar">
