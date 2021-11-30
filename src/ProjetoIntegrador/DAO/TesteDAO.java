@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ProjetoIntegrador.DAO;
-import ProjetoIntegrador.model.Endereco;
+import ProjetoIntegrador.model.Enderecos;
 
 
 /**

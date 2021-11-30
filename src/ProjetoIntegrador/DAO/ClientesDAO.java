@@ -28,7 +28,7 @@ public ClientesDAO(){
 }
     public void cadastrarCliente(Clientes obj){
          try {
-             String sql = "insert into tb_cliente(nome,email,cpf,telefone)"
+             String sql = "insert into tb_clientes(nome,email,cpf,telefone)"
                      + " values(?,?,?,?)";
              
              PreparedStatement comando = conexao.prepareStatement(sql);
@@ -49,9 +49,9 @@ public ClientesDAO(){
              while(resultado.next()){
                  obj.setId(resultado.getInt("id"));
              }
-             
+             JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso");
              } catch (SQLException e){
-                 
+                 JOptionPane.showMessageDialog(null, e);
              }
     }
     public List<Clientes> listarClientes(){

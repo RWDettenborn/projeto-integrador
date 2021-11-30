@@ -21,17 +21,17 @@ public class FrmListarEnderecos extends javax.swing.JFrame {
     List<Enderecos> lista = dao.listarEnderecos();
     DefaultTableModel tabela = (DefaultTableModel)jTableEnderecos.getModel();
     tabela.setNumRows(0);
-    for(Enderecos i: lista){
-        tabela.addRow(new Object[]{
-            i.getId(),
-            i.getCep(),
-            i.getRua(),
-            i.getNumero(),
-            i.getComplemento(),
-            i.getBairro(),
-            i.getCidade(),
-            i.getUF()
-            } );
+        for(Enderecos i: lista){
+            tabela.addRow(new Object[]{
+                i.getId(),
+                i.getCep(),
+                i.getRua(),
+                i.getNumero(),
+                i.getComplemento(),
+                i.getBairro(),
+                i.getCidade(),
+                i.getUF()
+                } );
         }
     }
     
@@ -75,7 +75,7 @@ public class FrmListarEnderecos extends javax.swing.JFrame {
             .addGroup(jPanelCabClienteLayout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jLabeltelacadscliente, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(371, Short.MAX_VALUE))
+                .addContainerGap(638, Short.MAX_VALUE))
         );
         jPanelCabClienteLayout.setVerticalGroup(
             jPanelCabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,8 +112,7 @@ public class FrmListarEnderecos extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanelCabCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE))
         );
 
         pack();
