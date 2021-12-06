@@ -13,19 +13,19 @@ import ProjetoIntegrador.model.Enderecos;
  */
 
 public class TesteDAO {
-    public static void main(String[] args) {
-//        Endereco enderecoTeste = new Endereco();
-//        
-//      enderecoTeste.setCep("85858-02");
-//        enderecoTeste.setRua("RUA GRANDE");
-//       enderecoTeste.setNumero(888);
-//        enderecoTeste.setComplemento("D");
-//       enderecoTeste.setBairro("CENTRO");
-//        enderecoTeste.setCidade("CHAPECO");
-//        enderecoTeste.setUF("SC");
-//        
-//        EnderecoDAO dao = new EnderecoDAO();
-//        dao.cadastrarEndereco(enderecoTeste);
-    }
+   /* public static void main(String[] args) {
+        Enderecos enderecoTeste = new Enderecos();
+        
+      enderecoTeste.setCep("85858-02");
+        enderecoTeste.setRua("RUA GRANDE");
+       enderecoTeste.setNumero(888);
+        enderecoTeste.setComplemento("D");
+       enderecoTeste.setBairro("CENTRO");
+        enderecoTeste.setCidade("CHAPECO");
+       enderecoTeste.setUF("SC");
+        
+        EnderecoDAO dao = new EnderecoDAO();
+        dao.cadastrarEndereco(enderecoTeste);
+    }*/
     
 }

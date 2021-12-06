@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projeto.integrador;
+package projetointegradorBD;
 
 /**
  *
  * @author robert.dettenborn
  */
-public class ProjetoIntegrador {
+public class ProjetoIntegradorBD {
 
   /*create database NEXTLEVELBD;
 

@@ -73,6 +73,7 @@ public class telaClientes extends javax.swing.JFrame {
         jButtonNovoCadastro = new javax.swing.JButton();
         jButtonAtualizar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
+        jButtonLimpaTabela = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableClientes = new javax.swing.JTable();
@@ -275,6 +276,18 @@ public class telaClientes extends javax.swing.JFrame {
             }
         });
 
+        jButtonLimpaTabela.setText("LIMPAR");
+        jButtonLimpaTabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonLimpaTabelaMouseClicked(evt);
+            }
+        });
+        jButtonLimpaTabela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLimpaTabelaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelcadastrosLayout = new javax.swing.GroupLayout(jPanelcadastros);
         jPanelcadastros.setLayout(jPanelcadastrosLayout);
         jPanelcadastrosLayout.setHorizontalGroup(
@@ -356,7 +369,9 @@ public class telaClientes extends javax.swing.JFrame {
                                         .addGap(47, 47, 47)
                                         .addComponent(jButtonAtualizar)
                                         .addGap(50, 50, 50)
-                                        .addComponent(jButtonExcluir))
+                                        .addComponent(jButtonExcluir)
+                                        .addGap(48, 48, 48)
+                                        .addComponent(jButtonLimpaTabela))
                                     .addComponent(jTextFieldruacliente, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(0, 89, Short.MAX_VALUE))
         );
@@ -409,7 +424,8 @@ public class telaClientes extends javax.swing.JFrame {
                 .addGroup(jPanelcadastrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonExcluir)
                     .addComponent(jButtonAtualizar)
-                    .addComponent(jButtonNovoCadastro))
+                    .addComponent(jButtonNovoCadastro)
+                    .addComponent(jButtonLimpaTabela))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
@@ -514,9 +530,9 @@ public class telaClientes extends javax.swing.JFrame {
             jPaneltlclienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPaneltlclienteLayout.createSequentialGroup()
                 .addComponent(jPanelCabCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
+                .addGap(27, 27, 27)
                 .addComponent(jTabbedPanecadastrocliente, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -537,7 +553,8 @@ public class telaClientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonpesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonpesquisarActionPerformed
-        
+       //BOTAO PARA PESQUISAR  
+        //SE O CAMPO PESQUISAR ESTIVER EM BRANCO, LISTAR TODOS OS CLIENTES
         if(jTextFieldpesquisa.getText().isBlank()){
            ClientesDAO dao = new ClientesDAO(); 
            List<Clientes> lista = dao.listarClientes();
@@ -592,6 +609,7 @@ public class telaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldnomeclienteActionPerformed
 
     private void jButtonsalvarSalvarEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonsalvarSalvarEnderecoActionPerformed
+        //BOTAO PARA SALVA ENDERECO
         try {
             Enderecos endereco = new Enderecos();
             endereco.setCep(jFormattedTextFieldcepcliente.getText());
@@ -609,6 +627,7 @@ public class telaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonsalvarSalvarEnderecoActionPerformed
 
     private void jButtonlistarEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonlistarEnderecoActionPerformed
+       //LISTA TODOS OS ENDERECOS CADASTRADOS 
         new FrmListarEnderecos().setVisible(true);
     }//GEN-LAST:event_jButtonlistarEnderecoActionPerformed
 
@@ -617,6 +636,7 @@ public class telaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldnomeclienteIdentificadorActionPerformed
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
+        //ATUALIZA OS DADOS DO CLIENTE COM O METODO 'atualizarCliente(cliente)' NO DAO
         Clientes cliente = new Clientes();
         cliente.setNome(jTextFieldnomecliente.getText());
         cliente.setCpf(jFormattedTextFieldCPF.getText());
@@ -633,7 +653,7 @@ public class telaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jFormattedTextFieldCPFActionPerformed
 
     private void jButtonNovoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNovoCadastroActionPerformed
-          
+        //CADASTRA UM NOVO CLIENTE
         try {
             Clientes cliente = new Clientes();
             cliente.setNome(jTextFieldnomecliente.getText());
@@ -643,7 +663,8 @@ public class telaClientes extends javax.swing.JFrame {
 
             ClientesDAO dao = new ClientesDAO();
             dao.cadastrarCliente(cliente);
-
+            
+         //ESSA PARTE SO PODE EXECUTAR SE O USUARIO NAO DEIXOU O CAMPO Rua EM BRANCO
             if (!jTextFieldruacliente.getText().isBlank()) {
 
                 Enderecos endereco = new Enderecos();
@@ -654,6 +675,7 @@ public class telaClientes extends javax.swing.JFrame {
                 endereco.setBairro(jTextFieldbairrocliente.getText());
                 endereco.setCidade(jTextFieldcidade.getText());
                 endereco.setUF(jComboBoxenderecouf.getSelectedItem().toString());
+             //PEGA O ENDERECO QUE ESTA SENDO CADASTRADO E SALVA O Id DO CLIENTE COMO CHAVE ESTRANGEIRA
                 endereco.setCliente(cliente);
 
                 EnderecoDAO daoEnd = new EnderecoDAO();
@@ -678,6 +700,7 @@ public class telaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableClientesMouseClicked
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        //EXCLUI UM CLIENTE CADASTRADO USANDO O METODO 'deletarCliente(cliente)' NO DAO
         Clientes clientes = new Clientes();
         clientes.setId(Integer.parseInt(jTextFieldnomeclienteIdentificador.getText()));
         ClientesDAO dao = new ClientesDAO();
@@ -721,15 +744,18 @@ public class telaClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonNovoCadastroKeyPressed
 
     private void jTextFieldpesquisaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldpesquisaKeyPressed
-if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-        
+        //QUANDO A TECLA 'ENTER' FOR APERTADA REALIZA A FUNÇÃO DE PESQUISAR
+    if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+        //SE O CAMPO PESQUISAR ESTIVER EM BRANCO, LISTAR TODOS OS CLIENTES
         if(jTextFieldpesquisa.getText().isBlank()){
-           ClientesDAO dao = new ClientesDAO(); 
+           ClientesDAO dao = new ClientesDAO();
+           //CRIA UMA LISTA DE ENDERECO ATRAVES DO METODO LISTAR ENDERECO DAO
            List<Clientes> lista = dao.listarClientes();
            DefaultTableModel tabela = (DefaultTableModel)jTableClientes.getModel();
+           //SETA O NUMERO DE COLUNAS DA TABELA EM ZERO PARA NÃO TER NUNHUM DADO PRE EXISTENTE
            tabela.setNumRows(0);
-           for(Clientes cliente: lista){ 
-               tabela.addRow(new Object[]{ 
+           for(Clientes cliente: lista){ //este é um exemplo de uso do for-each
+               tabela.addRow(new Object[]{ //este Object é um vetor/array
                    cliente.getId(),
                    cliente.getNome(),
                    cliente.getCpf(),
@@ -758,6 +784,25 @@ if(evt.getKeyCode() == KeyEvent.VK_ENTER){
     private void buttonpesquisarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_buttonpesquisarKeyPressed
         
     }//GEN-LAST:event_buttonpesquisarKeyPressed
+
+    private void jButtonLimpaTabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLimpaTabelaMouseClicked
+        //QUANDO O BOTAO 'LIMPAR' FOR APERTADO LIMPA TODOS OS CAMPOS
+        jTextFieldnomeclienteIdentificador.setText(null);
+        jTextFieldnomecliente.setText(null);
+        jFormattedTextFieldCPF.setText(null);
+        jTextFieldEmail.setText(null);
+        jFormattedTextFieldtelefonecliente.setText(null);
+        jFormattedTextFieldcepcliente.setText(null);
+        jTextFieldruacliente.setText(null);
+        jFormattedTextFieldnumero.setText(null);
+        jTextFieldcomplemento.setText(null);
+        jTextFieldbairrocliente.setText(null);
+        jTextFieldcidade.setText(null);
+    }//GEN-LAST:event_jButtonLimpaTabelaMouseClicked
+
+    private void jButtonLimpaTabelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLimpaTabelaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLimpaTabelaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -798,6 +843,7 @@ if(evt.getKeyCode() == KeyEvent.VK_ENTER){
     private java.awt.Button buttonpesquisar;
     private javax.swing.JButton jButtonAtualizar;
     private javax.swing.JButton jButtonExcluir;
+    private javax.swing.JButton jButtonLimpaTabela;
     private javax.swing.JButton jButtonNovoCadastro;
     private javax.swing.JButton jButtonlistarEndereco;
     private javax.swing.JButton jButtonsalvarSalvarEndereco;

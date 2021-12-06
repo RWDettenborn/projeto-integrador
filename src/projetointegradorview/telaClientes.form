@@ -54,9 +54,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanelCabCliente" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="jTabbedPanecadastrocliente" min="-2" pref="409" max="-2" attributes="0"/>
-                  <EmptySpace pref="45" max="32767" attributes="0"/>
+                  <EmptySpace pref="55" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -208,6 +208,8 @@
                                                   <Component id="jButtonAtualizar" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                                                   <Component id="jButtonExcluir" min="-2" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                                                  <Component id="jButtonLimpaTabela" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                               <Component id="jTextFieldruacliente" min="-2" pref="296" max="-2" attributes="0"/>
                                           </Group>
@@ -276,6 +278,7 @@
                               <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonAtualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonNovoCadastro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonLimpaTabela" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="60" max="32767" attributes="0"/>
                       </Group>
@@ -528,6 +531,15 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluirActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="jButtonLimpaTabela">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="LIMPAR"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonLimpaTabelaMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonLimpaTabelaActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
